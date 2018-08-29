@@ -54,9 +54,9 @@ def main(args):
     with open(os.devnull, 'w') as f:
         check_call(cmd, stdout=f, stderr=f)
 
-    # open Chrome with SOCKS proxy configuration
+    # open Chromium with SOCKS proxy configuration
     cmd = [
-        r'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        r'/usr/bin/chromium-browser',
         'http://localhost:{}'.format(connect_port),
         '--proxy-server=socks5://localhost:{}'.format(args.port),
         '--host-resolver-rules=MAP * 0.0.0.0 , EXCLUDE localhost',
